@@ -1,0 +1,19 @@
+<form action="/pizza-orders" method="post">
+
+  <label for="first-name">First Name:</label> <!-- for field must match id field-->
+    <input type="text" name="first_name" id="first-name">
+
+  <label for="last-name">Last Name:</label>
+    <input type="text" name="last_name" id="last-name">
+
+  <label for="pizza-select">Select a pizza:</label>
+    <select id="pizza-select" name="topping"> <!-- name connects to db ... this is really important if you get an error check these first i guess.-->
+      <option value="Margherita">Margherita</option>
+      <option value="Calzone">Calzone</option>
+    </select>
+
+  <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity">
+
+  <input type="submit" value="Order Pizza"> <!--value is displayed on the button-->
+</form>
