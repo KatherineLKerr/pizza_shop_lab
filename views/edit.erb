@@ -1,6 +1,6 @@
 <!-- EDIT -->
 
-<form action="/pizza-orders" method="post">
+<form action="/pizza-orders/<%=@order.id%>" method="post">
 
   <label for="first-name">First Name:</label> <!-- for field must match id field-->
     <input type="text" value="<%= @order.first_name %>" name="first_name" id="first-name">

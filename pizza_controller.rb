@@ -7,12 +7,6 @@ also_reload('./models/*')
 # order to write things in:
 # db -> models -> controller -> views
 
-#INDEX
-get '/pizza-orders' do
-  @orders = PizzaOrder.all()
-  erb(:index)
-end
-
 #NEW
 get '/pizza-orders/new' do
   erb(:new)
@@ -25,10 +19,10 @@ post '/pizza-orders' do
   erb(:create)
 end
 
-#EDIT
-get '/pizza-orders/:id/edit' do
-  @order = PizzaOrder.find(params[:id].to_i)
-  erb(:edit)
+#INDEX
+get '/pizza-orders' do
+  @orders = PizzaOrder.all()
+  erb(:index)
 end
 
 #SHOW
@@ -37,10 +31,16 @@ get '/pizza-orders/:id' do
   erb(:show)
 end
 
+#EDIT
+get '/pizza-orders/:id/edit' do
+  @order = PizzaOrder.find(params[:id].to_i)
+  erb(:edit)
+end
+
 #UPDATE
-post '/pizza-orders' do
-  @order = PizzaOrder.update(params)
-  @order.save
+post '/pizza-orders/:id' do
+  @order = PizzaOrder.new(params) #This is a new Ruby instance not a new order.
+  @order.update()
   erb(:update)
 end
 
