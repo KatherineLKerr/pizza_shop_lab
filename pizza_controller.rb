@@ -25,8 +25,29 @@ post '/pizza-orders' do
   erb(:create)
 end
 
+#EDIT
+get '/pizza-orders/:id/edit' do
+  @order = PizzaOrder.find(params[:id].to_i)
+  erb(:edit)
+end
+
 #SHOW
 get '/pizza-orders/:id' do
   @order = PizzaOrder.find(params[:id].to_i) #params hash understands both symbols and strings, so could put "id" instead of :id
   erb(:show)
+end
+
+#UPDATE
+post '/pizza-orders' do
+  @order = PizzaOrder.update(params)
+  @order.save
+  erb(:update)
+end
+
+#DELETE
+post '/pizza-orders/:id/delete' do
+  @order = PizzaOrder.find(params[:id].to_i)
+  @order.delete()
+  #REDIRECT
+  redirect '/pizza-orders'
 end

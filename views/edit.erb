@@ -1,0 +1,21 @@
+<!-- EDIT -->
+
+<form action="/pizza-orders" method="post">
+
+  <label for="first-name">First Name:</label> <!-- for field must match id field-->
+    <input type="text" value="<%= @order.first_name %>" name="first_name" id="first-name">
+
+  <label for="last-name">Last Name:</label>
+    <input type="text" value="<%= @order.last_name %>" name="last_name" id="last-name">
+
+  <label for="pizza-select">Select a pizza:</label>
+    <select value="<%= @order.topping %>" id="pizza-select" name="topping"> <!-- name connects to db ... this is really important if you get an error check these first i guess.-->
+      <option value="Margherita">Margherita</option>
+      <option value="Calzone">Calzone</option>
+    </select>
+
+  <label for="quantity">Quantity</label>
+    <input type="number" value="<%= @order.quantity %>" name="quantity" id="quantity">
+
+  <input type="submit" value="Update Pizza"> <!--value is displayed on the button-->
+</form>
